@@ -8,11 +8,12 @@
 <br />
 Python 3.7 : Flask1.0.2 + qrcode<br />
 <br />
+
+<br />
 <form action="make_qrcode" method="post">
 <textarea name="qr_value" style="font-size:20px; width:300px; height:200px;" >
-{{ qr_value }}
-</textarea>
-<br /><br />
+{{ qr_value }}</textarea>
+<br />
 <input type="submit" value="QRコード作成" style="width:150px;height:40px;" />
 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
 </form>
@@ -22,6 +23,12 @@ Python 3.7 : Flask1.0.2 + qrcode<br />
 {% if qr_path %}
 <img src="{{ url_for('qrdist.static', filename=qr_path) }}" alt="qrcode" />
 {% endif %}
-{% endblock %}
+
+<br />
+<a href="https://github.com/tjonen/flask_qrcode" target="_blank">ソースコード</a>
+<br />
 
 </center>
+
+{% endblock %}
+
