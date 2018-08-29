@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+<a href="http://www.kd2.jp">コスギデンサン</a> >> QRCode作成
+<hr />
+
+<center>
+<b>QRCode作成</b> 2018/8<br />
+<br />
+Python 3.7 : Flask1.0.2 + qrcode<br />
+<br />
+<form action="make_qrcode" method="post">
+<textarea name="qr_value" style="font-size:20px; width:300px; height:200px;" >
+{{ qr_value }}
+</textarea>
+<br /><br />
+<input type="submit" value="QRコード作成" style="width:150px;height:40px;" />
+<input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
+</form>
+<br />
+<br />
+
+{% if qr_path %}
+<img src="{{ url_for('qrdist.static', filename=qr_path) }}" alt="qrcode" />
+{% endif %}
+{% endblock %}
+
+</center>
